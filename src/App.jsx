@@ -250,7 +250,7 @@ export default function App() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
-      <h2>2D Physics Engine</h2>
+      <h2>BounceLAB</h2>
       <p style={{ color: "#94a3b8", fontSize: "14px", marginTop: "0" }}>
         Click & drag on the canvas to slingshot balls.
       </p>
