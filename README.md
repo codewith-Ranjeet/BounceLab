@@ -1,4 +1,4 @@
-# 2D Physics Engine in React.js
+# BounceLab
 
 A lightweight 2D circle-body physics engine written from scratch with HTML5 Canvas and React. It features impulse-based collision resolution, momentum transfer between bodies, interactive mouse launching, and sub-stepping to reduce tunneling.
 
@@ -23,7 +23,7 @@ A lightweight 2D circle-body physics engine written from scratch with HTML5 Canv
 - **Framework**: [React](https://react.dev/) (18 or 19)
 - **Bundler / Dev Server**: [Vite](https://vitejs.dev/)
 - **Rendering**: HTML5 Canvas API (via React `useRef` + `requestAnimationFrame`)
-- **Styling**: Tailwind CSS *(or vanilla CSS, pick one and delete this note)*
+- **Styling**: Vanilla CSS
 
 ---
 
@@ -50,8 +50,8 @@ src/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/codewith-Ranjeet/2dPhysicsEngine.git
-cd 2dPhysicsEngine
+git clone https://github.com/codewith-Ranjeet/BounceLab.git
+cd BounceLab
 ```
 
 ### 2. Install dependencies
@@ -66,7 +66,7 @@ npm install
 npm run dev
 ```
 
-Open <http://localhost:5173> (or the port shown in your terminal).
+Open http://localhost:5173 (or the port shown in your terminal).
 
 ### 4. Build for production
 
@@ -97,15 +97,21 @@ npm run preview
 
 ### 1. Semi-Implicit Euler Integration
 
-$$\vec{v}_{t+1} = \vec{v}_t + \vec{a}\,\Delta t$$
+$$
+\vec{v}_{t+1} = \vec{v}_t + \vec{a}\,\Delta t
+$$
 
-$$\vec{x}_{t+1} = \vec{x}_t + \vec{v}_{t+1}\,\Delta t$$
+$$
+\vec{x}_{t+1} = \vec{x}_t + \vec{v}_{t+1}\,\Delta t
+$$
 
 ### 2. Impulse Magnitude
 
 For two bodies with masses $m_1, m_2$, relative velocity $\vec{v}_{rel}$, and collision normal $\hat{n}$:
 
-$$J = \frac{-(1 + e)\,(\vec{v}_{rel} \cdot \hat{n})}{\frac{1}{m_1} + \frac{1}{m_2}}$$
+$$
+J = \frac{-(1 + e)\,(\vec{v}_{rel} \cdot \hat{n})}{\frac{1}{m_1} + \frac{1}{m_2}}
+$$
 
 Each body's velocity changes by $\pm J\hat{n}/m_i$.
 
@@ -113,7 +119,9 @@ Each body's velocity changes by $\pm J\hat{n}/m_i$.
 
 The total correction is split between the bodies by inverse mass, so the lighter body moves more:
 
-$$\Delta \vec{p}_i = \pm\,\hat{n}\cdot \text{penetration}\cdot\frac{1/m_i}{\frac{1}{m_1} + \frac{1}{m_2}}$$
+$$
+\Delta \vec{p}_i = \pm\,\hat{n}\cdot \text{penetration}\cdot\frac{1/m_i}{\frac{1}{m_1} + \frac{1}{m_2}}
+$$
 
 ---
 
